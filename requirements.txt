@@ -1,0 +1,1 @@
+squidasm @ git+https://github.com/QuTech-Delft/squidasm.git@21b24045c37ce3cd1492df0a0bffd278c62674a5
