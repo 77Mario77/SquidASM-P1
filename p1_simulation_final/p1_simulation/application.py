@@ -180,7 +180,7 @@ class RecipientProgram(Program):
             context, records, n_sent, n_recv, protocol_abort
         ))
 
-    # ------------------------------------------------------------------
+    
     def _count_mismatches(self, records, message, declared_key):
         """Un mismatch e' un elemento in cui lo stato dichiarato coincide con
         lo stato che il destinatario aveva escluso."""
