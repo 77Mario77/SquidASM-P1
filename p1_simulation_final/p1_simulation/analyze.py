@@ -43,7 +43,7 @@ def select(rows, **kw):
     return [r for r in rows if all(r[k] == v for k, v in kw.items())]
 
 
-# ----------------------------------------------------------------------
+
 def is_abort(row, r):
     low, high = abort_limits(row["L"], r)
     counts = [row["b_recv0"], row["b_recv1"], row["c_recv0"], row["c_recv1"]]
@@ -87,7 +87,7 @@ def _yerr(pts):
     return [[min(p[2], 0.9 * p[1]) for p in pts], [p[2] for p in pts]]
 
 
-# ----------------------------------------------------------------------
+
 def fig_abort_vs_L(rows):
     ideal = select(rows, condition="ideal", scenario="authentic")
     Ls = sorted({x["L"] for x in ideal})
