@@ -1,0 +1,63 @@
+qdevice_cfg: &qdevice_cfg
+  num_qubits: 2
+  T1: 1000000000
+  T2: 100000000
+  init_time: 10000
+  single_qubit_gate_time: 1000
+  two_qubit_gate_time: 100000
+  measure_time: 10000
+  single_qubit_gate_depolar_prob: 0.01
+  two_qubit_gate_depolar_prob: 0.1
+
+stacks:
+  - name: Alice
+    qdevice_typ: generic
+    qdevice_cfg:
+      <<: *qdevice_cfg
+  - name: Bob
+    qdevice_typ: generic
+    qdevice_cfg:
+      <<: *qdevice_cfg
+  - name: Charlie
+    qdevice_typ: generic
+    qdevice_cfg:
+      <<: *qdevice_cfg
+
+link_cfg: &link_cfg
+  fidelity: 0.9
+  prob_success: 0.8
+  t_cycle: 100000
+
+links:
+  - stack1: Alice
+    stack2: Bob
+    typ: depolarise
+    cfg:
+      <<: *link_cfg
+  - stack1: Alice
+    stack2: Charlie
+    typ: depolarise
+    cfg:
+      <<: *link_cfg
+  - stack1: Bob
+    stack2: Charlie
+    typ: depolarise
+    cfg:
+      <<: *link_cfg
+
+clinks:
+  - stack1: Alice
+    stack2: Bob
+    typ: default
+    cfg:
+      delay: 5000
+  - stack1: Alice
+    stack2: Charlie
+    typ: default
+    cfg:
+      delay: 10000
+  - stack1: Bob
+    stack2: Charlie
+    typ: default
+    cfg:
+      delay: 10000

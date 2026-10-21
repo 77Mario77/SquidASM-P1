@@ -1,0 +1,48 @@
+stacks:
+- name: Alice
+  qdevice_typ: generic
+  qdevice_cfg:
+    dummy: null
+    num_qubits: 2
+    single_qubit_gate_depolar_prob: 0.0
+    two_qubit_gate_depolar_prob: 0.0
+- name: Bob
+  qdevice_typ: generic
+  qdevice_cfg:
+    dummy: null
+    num_qubits: 2
+    single_qubit_gate_depolar_prob: 0.0
+    two_qubit_gate_depolar_prob: 0.0
+- name: Charlie
+  qdevice_typ: generic
+  qdevice_cfg:
+    dummy: null
+    num_qubits: 2
+    single_qubit_gate_depolar_prob: 0.0
+    two_qubit_gate_depolar_prob: 0.0
+links:
+- stack1: Alice
+  stack2: Bob
+  typ: perfect
+  cfg:
+    dummy: null
+- stack1: Alice
+  stack2: Charlie
+  typ: perfect
+  cfg:
+    dummy: null
+- stack1: Bob
+  stack2: Charlie
+  typ: perfect
+  cfg:
+    dummy: null
+clinks:
+- stack1: Alice
+  stack2: Bob
+  typ: instant
+- stack1: Alice
+  stack2: Charlie
+  typ: instant
+- stack1: Bob
+  stack2: Charlie
+  typ: instant
