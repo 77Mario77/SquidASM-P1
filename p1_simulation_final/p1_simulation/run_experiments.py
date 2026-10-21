@@ -40,7 +40,7 @@ BASE_GATE1 = 0.01
 BASE_GATE2 = 0.1
 
 
-# ----------------------------------------------------------------------
+
 def noisy_config_file(fidelity, gate1, gate2, prob_success=0.8):
     """Scrive un file yaml con i parametri di rumore richiesti (stessa
     struttura di config_noisy.yaml) e ne restituisce il percorso."""
@@ -189,7 +189,7 @@ def run_batch(condition, scenario, L, n_runs, fidelity=None, gate1=None, gate2=N
     print(f"  fatto {tag}  ({len(rows)} esecuzioni, {time.time() - t0:.1f} s)", flush=True)
 
 
-# ----------------------------------------------------------------------
+
 def exp_abort(quick):
     # L piccoli e medi con tante ripetizioni; il caso rumoroso (l'aborto non
     # dipende dal rumore) solo per alcuni L, per risparmiare tempo.
